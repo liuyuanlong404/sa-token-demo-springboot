@@ -1,6 +1,7 @@
 package com.lakers.satokendemospringboot.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
+import cn.dev33.satoken.util.SaResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,11 @@ public class UserController {
     @RequestMapping("isLogin")
     public String isLogin() {
         return "当前会话是否登录：" + StpUtil.isLogin();
+    }
+
+    @RequestMapping("tokenInfo")
+    public SaResult tokenInfo() {
+        return SaResult.data(StpUtil.getTokenInfo());
     }
 
 }
